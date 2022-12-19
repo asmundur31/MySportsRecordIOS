@@ -8,12 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		2333E388294BA03A00B75BA8 /* MySportsRecordIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333E387294BA03A00B75BA8 /* MySportsRecordIOSApp.swift */; };
-		2333E38A294BA03A00B75BA8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333E389294BA03A00B75BA8 /* ContentView.swift */; };
+		2333E38A294BA03A00B75BA8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333E389294BA03A00B75BA8 /* MainView.swift */; };
 		2333E38C294BA04200B75BA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2333E38B294BA04200B75BA8 /* Assets.xcassets */; };
 		2333E38F294BA04200B75BA8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2333E38E294BA04200B75BA8 /* Preview Assets.xcassets */; };
 		2333E399294BA04300B75BA8 /* MySportsRecordIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333E398294BA04300B75BA8 /* MySportsRecordIOSTests.swift */; };
 		2333E3A3294BA04300B75BA8 /* MySportsRecordIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333E3A2294BA04300B75BA8 /* MySportsRecordIOSUITests.swift */; };
 		2333E3A5294BA04300B75BA8 /* MySportsRecordIOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333E3A4294BA04300B75BA8 /* MySportsRecordIOSUITestsLaunchTests.swift */; };
+		23D7E5AB2950A213005B84AF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5AA2950A213005B84AF /* UserView.swift */; };
+		23D7E5AD2950A222005B84AF /* RanklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5AC2950A222005B84AF /* RanklistView.swift */; };
+		23D7E5AF2950A234005B84AF /* NewsfeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5AE2950A234005B84AF /* NewsfeedView.swift */; };
+		23D7E5B12950A5FB005B84AF /* SideBarStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5B02950A5FA005B84AF /* SideBarStack.swift */; };
+		23D7E5B32950A890005B84AF /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5B22950A890005B84AF /* SidebarView.swift */; };
+		23D7E5B72950A901005B84AF /* NavigationTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5B62950A901005B84AF /* NavigationTabView.swift */; };
+		23D7E5B92950AD11005B84AF /* SidebarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5B82950AD11005B84AF /* SidebarButtonView.swift */; };
+		23D7E5BB2950B8BC005B84AF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5BA2950B8BB005B84AF /* LoginView.swift */; };
+		23D7E5BD2950B92A005B84AF /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5BC2950B92A005B84AF /* SignUpView.swift */; };
+		23D7E5BF2950B952005B84AF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5BE2950B952005B84AF /* SettingsView.swift */; };
+		23D7E5C12950BCF5005B84AF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5C02950BCF5005B84AF /* HomeView.swift */; };
+		23D7E5C32950BE74005B84AF /* SidebarNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5C22950BE74005B84AF /* SidebarNavigationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +48,7 @@
 /* Begin PBXFileReference section */
 		2333E384294BA03A00B75BA8 /* MySportsRecordIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySportsRecordIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2333E387294BA03A00B75BA8 /* MySportsRecordIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySportsRecordIOSApp.swift; sourceTree = "<group>"; };
-		2333E389294BA03A00B75BA8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2333E389294BA03A00B75BA8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2333E38B294BA04200B75BA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2333E38E294BA04200B75BA8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2333E394294BA04300B75BA8 /* MySportsRecordIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsRecordIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +56,18 @@
 		2333E39E294BA04300B75BA8 /* MySportsRecordIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsRecordIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2333E3A2294BA04300B75BA8 /* MySportsRecordIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySportsRecordIOSUITests.swift; sourceTree = "<group>"; };
 		2333E3A4294BA04300B75BA8 /* MySportsRecordIOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySportsRecordIOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		23D7E5AA2950A213005B84AF /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		23D7E5AC2950A222005B84AF /* RanklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RanklistView.swift; sourceTree = "<group>"; };
+		23D7E5AE2950A234005B84AF /* NewsfeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsfeedView.swift; sourceTree = "<group>"; };
+		23D7E5B02950A5FA005B84AF /* SideBarStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarStack.swift; sourceTree = "<group>"; };
+		23D7E5B22950A890005B84AF /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		23D7E5B62950A901005B84AF /* NavigationTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabView.swift; sourceTree = "<group>"; };
+		23D7E5B82950AD11005B84AF /* SidebarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarButtonView.swift; sourceTree = "<group>"; };
+		23D7E5BA2950B8BB005B84AF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		23D7E5BC2950B92A005B84AF /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		23D7E5BE2950B952005B84AF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		23D7E5C02950BCF5005B84AF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		23D7E5C22950BE74005B84AF /* SidebarNavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarNavigationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +119,9 @@
 			isa = PBXGroup;
 			children = (
 				2333E387294BA03A00B75BA8 /* MySportsRecordIOSApp.swift */,
-				2333E389294BA03A00B75BA8 /* ContentView.swift */,
+				23D7E5A829509EF2005B84AF /* Models */,
+				23D7E5A929509F00005B84AF /* ModelViews */,
+				23D7E5A729509ED4005B84AF /* Views */,
 				2333E38B294BA04200B75BA8 /* Assets.xcassets */,
 				2333E38D294BA04200B75BA8 /* Preview Content */,
 			);
@@ -125,6 +151,40 @@
 				2333E3A4294BA04300B75BA8 /* MySportsRecordIOSUITestsLaunchTests.swift */,
 			);
 			path = MySportsRecordIOSUITests;
+			sourceTree = "<group>";
+		};
+		23D7E5A729509ED4005B84AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2333E389294BA03A00B75BA8 /* MainView.swift */,
+				23D7E5AA2950A213005B84AF /* UserView.swift */,
+				23D7E5AC2950A222005B84AF /* RanklistView.swift */,
+				23D7E5AE2950A234005B84AF /* NewsfeedView.swift */,
+				23D7E5B02950A5FA005B84AF /* SideBarStack.swift */,
+				23D7E5B22950A890005B84AF /* SidebarView.swift */,
+				23D7E5B62950A901005B84AF /* NavigationTabView.swift */,
+				23D7E5B82950AD11005B84AF /* SidebarButtonView.swift */,
+				23D7E5BA2950B8BB005B84AF /* LoginView.swift */,
+				23D7E5BC2950B92A005B84AF /* SignUpView.swift */,
+				23D7E5BE2950B952005B84AF /* SettingsView.swift */,
+				23D7E5C02950BCF5005B84AF /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		23D7E5A829509EF2005B84AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		23D7E5A929509F00005B84AF /* ModelViews */ = {
+			isa = PBXGroup;
+			children = (
+				23D7E5C22950BE74005B84AF /* SidebarNavigationManager.swift */,
+			);
+			path = ModelViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +317,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2333E38A294BA03A00B75BA8 /* ContentView.swift in Sources */,
+				23D7E5AD2950A222005B84AF /* RanklistView.swift in Sources */,
+				23D7E5B12950A5FB005B84AF /* SideBarStack.swift in Sources */,
+				23D7E5C32950BE74005B84AF /* SidebarNavigationManager.swift in Sources */,
+				23D7E5B32950A890005B84AF /* SidebarView.swift in Sources */,
+				2333E38A294BA03A00B75BA8 /* MainView.swift in Sources */,
+				23D7E5B72950A901005B84AF /* NavigationTabView.swift in Sources */,
+				23D7E5C12950BCF5005B84AF /* HomeView.swift in Sources */,
+				23D7E5BD2950B92A005B84AF /* SignUpView.swift in Sources */,
+				23D7E5AB2950A213005B84AF /* UserView.swift in Sources */,
+				23D7E5B92950AD11005B84AF /* SidebarButtonView.swift in Sources */,
 				2333E388294BA03A00B75BA8 /* MySportsRecordIOSApp.swift in Sources */,
+				23D7E5BF2950B952005B84AF /* SettingsView.swift in Sources */,
+				23D7E5BB2950B8BC005B84AF /* LoginView.swift in Sources */,
+				23D7E5AF2950A234005B84AF /* NewsfeedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
