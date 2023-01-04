@@ -32,5 +32,6 @@ struct NavigationTabView: View {
 struct NavigationTabView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationTabView()
+            .environmentObject(RanklistsViewModel())
     }
 }
