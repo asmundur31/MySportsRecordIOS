@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Users: Hashable {
+struct Users: Hashable, Codable {
     private(set) var users: [User]
     
     mutating func setUsers(users: [User]) {
@@ -15,7 +15,12 @@ struct Users: Hashable {
     }
 }
 
-struct User: Hashable {
+struct User: Hashable, Codable {
     var username: String
+    var email: String
+    var birthday: String
+    var gender: String
+    var nationality: String?
+    var club: String?
     var score: Double
 }

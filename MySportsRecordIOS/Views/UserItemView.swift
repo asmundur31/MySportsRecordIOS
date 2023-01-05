@@ -27,6 +27,6 @@ struct UserItemView: View {
 
 struct UserItemView_Previews: PreviewProvider {
     static var previews: some View {
-        UserItemView(user: User(username: "Ási", score: 12.3), place: 1)
+        UserItemView(user: User(username: "Ási", email: "asmundur31@gmail.com", birthday: "1998-10-31", gender: "Male", nationality: "Iceland", club: "Brommagymnasterna", score: 12.3), place: 1)
     }
 }

@@ -31,6 +31,9 @@
 		23D7E5BF2950B952005B84AF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5BE2950B952005B84AF /* SettingsView.swift */; };
 		23D7E5C12950BCF5005B84AF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5C02950BCF5005B84AF /* HomeView.swift */; };
 		23D7E5C32950BE74005B84AF /* SidebarNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D7E5C22950BE74005B84AF /* SidebarNavigationManager.swift */; };
+		23F9E9902966F515005DB3BE /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9E98F2966F515005DB3BE /* AuthenticationViewModel.swift */; };
+		23F9E99329675E0B005DB3BE /* SignUpDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9E99229675E0B005DB3BE /* SignUpDTO.swift */; };
+		23F9E99529675E3F005DB3BE /* RanklistDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F9E99429675E3F005DB3BE /* RanklistDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,10 @@
 		23D7E5BE2950B952005B84AF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		23D7E5C02950BCF5005B84AF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		23D7E5C22950BE74005B84AF /* SidebarNavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarNavigationManager.swift; sourceTree = "<group>"; };
+		23F9E98E2966DF50005DB3BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		23F9E98F2966F515005DB3BE /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		23F9E99229675E0B005DB3BE /* SignUpDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDTO.swift; sourceTree = "<group>"; };
+		23F9E99429675E3F005DB3BE /* RanklistDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RanklistDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +135,10 @@
 		2333E386294BA03A00B75BA8 /* MySportsRecordIOS */ = {
 			isa = PBXGroup;
 			children = (
+				23F9E98E2966DF50005DB3BE /* Info.plist */,
 				2333E387294BA03A00B75BA8 /* MySportsRecordIOSApp.swift */,
 				23D7E5A829509EF2005B84AF /* Models */,
+				23F9E99129675DD9005DB3BE /* DTO */,
 				23D7E5A929509F00005B84AF /* ModelViews */,
 				23D7E5A729509ED4005B84AF /* Views */,
 				2333E38B294BA04200B75BA8 /* Assets.xcassets */,
@@ -198,8 +207,18 @@
 				23BE8E822950F3A50040CBD9 /* Network.swift */,
 				23BE8E842950F47A0040CBD9 /* RanklistsViewModel.swift */,
 				23BE8E882950F6670040CBD9 /* Parser.swift */,
+				23F9E98F2966F515005DB3BE /* AuthenticationViewModel.swift */,
 			);
 			path = ModelViews;
+			sourceTree = "<group>";
+		};
+		23F9E99129675DD9005DB3BE /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				23F9E99229675E0B005DB3BE /* SignUpDTO.swift */,
+				23F9E99429675E3F005DB3BE /* RanklistDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,6 +358,7 @@
 				23BE8E8B2950FB350040CBD9 /* UserItemView.swift in Sources */,
 				2333E38A294BA03A00B75BA8 /* MainView.swift in Sources */,
 				23BE8E832950F3A50040CBD9 /* Network.swift in Sources */,
+				23F9E99529675E3F005DB3BE /* RanklistDTO.swift in Sources */,
 				23D7E5B72950A901005B84AF /* NavigationTabView.swift in Sources */,
 				23D7E5C12950BCF5005B84AF /* HomeView.swift in Sources */,
 				23D7E5BD2950B92A005B84AF /* SignUpView.swift in Sources */,
@@ -348,7 +368,9 @@
 				23D7E5B92950AD11005B84AF /* SidebarButtonView.swift in Sources */,
 				2333E388294BA03A00B75BA8 /* MySportsRecordIOSApp.swift in Sources */,
 				23BE8E892950F6670040CBD9 /* Parser.swift in Sources */,
+				23F9E9902966F515005DB3BE /* AuthenticationViewModel.swift in Sources */,
 				23D7E5BF2950B952005B84AF /* SettingsView.swift in Sources */,
+				23F9E99329675E0B005DB3BE /* SignUpDTO.swift in Sources */,
 				23D7E5BB2950B8BC005B84AF /* LoginView.swift in Sources */,
 				23D7E5AF2950A234005B84AF /* NewsfeedView.swift in Sources */,
 			);
@@ -512,7 +534,7 @@
 				DEVELOPMENT_TEAM = 75D46AU8U9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = MySportsRecordIOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -541,7 +563,7 @@
 				DEVELOPMENT_TEAM = 75D46AU8U9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = MySportsRecordIOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

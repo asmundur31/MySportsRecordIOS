@@ -17,7 +17,7 @@ class Network {
     private init() {}
 
     // Function that gets weather forcast based on location
-    func getTopUsers(completion: @escaping (Result<[UserDTO], Error>) -> Void) {
+    func request<T: Codable>(method: String, url: String, body: [String: Any], type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         // Check the internet connection
         let monitor = NWPathMonitor()
         monitor.pathUpdateHandler = { path in
@@ -27,23 +27,30 @@ class Network {
                 return
             }
         }
-
         let queue = DispatchQueue(label: "Monitor")
         monitor.start(queue: queue)
         
         // Create the url
-        guard let url = URL(string: "http://localhost:3001/ranklists/top-users") else {
+        guard let url = URL(string: url) else {
             completion(.failure(NetworkError.urlError))
             return
         }
+        // Create the request
+        var request = URLRequest(url: url)
+        request.httpMethod = method
+        if method == "POST" {
+            let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+            request.httpBody = jsonBody
+        }
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
 
         // Create the task
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(NetworkError.clientError(error: error)))
                 return
             }
-
             guard let httpResponse = response as? HTTPURLResponse,
                 (200...299).contains(httpResponse.statusCode) else {
                 let statusCode = (response as! HTTPURLResponse).statusCode
@@ -51,11 +58,17 @@ class Network {
                 return
             }
             if let mimeType = httpResponse.mimeType, mimeType == "application/json", let data = data {
-                if let result = try? JSONDecoder().decode([UserDTO].self, from: data) {
-                    completion(.success(result))
-                } else {
-                    completion(.failure(NetworkError.decodeError))
+                if method == "GET" {
+                    if let result = try? JSONDecoder().decode(T.self, from: data) {
+                        completion(.success(result))
+                    } else {
+                        completion(.failure(NetworkError.decodeError))
+                    }
                 }
+            }
+            // If post method it was successful
+            if method == "POST" {
+                completion(.success("Successful" as! T))
             }
         }
         // Start the task
@@ -73,10 +86,4 @@ extension Network {
         case statusNotSuccess(status: Int)
         case decodeError
     }
-}
-
-// Structs to recive data
-struct UserDTO: Codable {
-    var username: String
-    var score: Double
 }

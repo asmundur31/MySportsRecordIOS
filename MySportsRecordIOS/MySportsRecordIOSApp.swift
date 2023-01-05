@@ -13,6 +13,7 @@ struct MySportsRecordIOSApp: App {
         WindowGroup {
             MainView()
                 .environmentObject(RanklistsViewModel())
+                .environmentObject(AuthenticationViewModel())
         }
     }
 }

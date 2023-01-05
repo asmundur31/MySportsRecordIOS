@@ -14,17 +14,25 @@ struct SidebarView: View {
         VStack {
             Text("My Sports Record")
                 .font(.title2)
-            Button(action: { navigationManager.viewType = .main }) {
+            Button {
+                navigationManager.viewType = .main
+            } label: {
                 Label("Home", systemImage: "figure.gymnastics")
             }
             .padding(.top)
-            Button(action: { navigationManager.viewType = .login }) {
+            Button {
+                navigationManager.viewType = .login
+            } label: {
                 Label("Login", systemImage: "lock.open")
             }
-            Button(action: { navigationManager.viewType = .signup }) {
+            Button {
+                navigationManager.viewType = .signup
+            } label: {
                 Label("Signup", systemImage: "person.badge.plus")
             }
-            Button(action: { navigationManager.viewType = .settings }) {
+            Button {
+                navigationManager.viewType = .settings
+            } label: {
                 Label("Settings", systemImage: "gear")
             }
             Spacer()
