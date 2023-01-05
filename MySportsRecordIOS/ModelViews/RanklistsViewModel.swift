@@ -11,7 +11,7 @@ class RanklistsViewModel: ObservableObject {
     @Published var topUsers: Users = Users(users: [])
     
     func getTopUsers() {
-        Network.shared.getTopUsers() { result in
+        Network.shared.request(method: "GET", url: "http://localhost:3001/ranklists/top-users", body: [:], type: [UserDTO].self) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):

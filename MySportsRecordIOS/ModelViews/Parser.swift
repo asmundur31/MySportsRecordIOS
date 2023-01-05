@@ -14,7 +14,7 @@ class Parser {
     func parseUsers(data: [UserDTO]) -> Users {
         var newUsers: [User] = []
         for u in data {
-            newUsers.append(User(username: u.username, score: u.score))
+            newUsers.append(User(username: u.username, email: u.email, birthday: u.birthday, gender: u.gender, nationality: u.nationality, club: u.club, score: u.score))
         }
         
         return Users(users: newUsers)
@@ -28,18 +28,5 @@ class Parser {
         let prettyDateFormatter = DateFormatter()
         prettyDateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         return prettyDateFormatter.string(from: date)
-    }
-    
-    // Function to get the name of symbol to use
-    func getSymbol(_ dateString: String, symb: Int) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date = dateFormatter.date(from: dateString)
-        let hour = Calendar.current.component(.hour, from: date!)
-        var symbol = "night\(symb)"
-        if hour > 7 && hour < 19 {
-            symbol = "\(symb)"
-        }
-        return symbol
     }
 }

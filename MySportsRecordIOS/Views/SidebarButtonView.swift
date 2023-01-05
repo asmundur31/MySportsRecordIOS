@@ -13,7 +13,7 @@ struct SidebarButtonView: View {
     var body: some View {
         Image(systemName: "line.3.horizontal")
             .onTapGesture {
-                showSidebar = !showSidebar
+                showSidebar.toggle()
             }
     }
 }
