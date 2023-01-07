@@ -1,24 +1,25 @@
 //
-//  RanklistsViewModel.swift
+//  UserViewModel.swift
 //  MySportsRecordIOS
 //
-//  Created by Ásmundur Óskar Ásmundsson on 19.12.2022.
+//  Created by Ásmundur Óskar Ásmundsson on 7.1.2023.
 //
 
 import Foundation
 
-class RanklistsViewModel: ObservableObject {
-    @Published var topUsers: Users = Users(users: [])
+class UserViewModel: ObservableObject {
+    @Published var user: User? = nil
     
-    func getTopUsers() {
-        Network.shared.request(method: "GET", url: "http://localhost:3001/ranklists/top-users", body: nil, token: nil, type: [UserDTO].self) { result in
+    func getUser() {
+        let accessToken = UserDefaults.standard.object(forKey: "accessToken") as? String
+        if accessToken == nil {
+            return
+        }
+        Network.shared.request(method: "GET", url: "http://localhost:3001/user", body: nil, token: accessToken, type: User.self) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
-                    // Parse the data
-                    let users = Parser().parseUsers(data: data)
-                    // Update the model
-                    self.topUsers.setUsers(users: users.users)
+                    self.user = data
                 case .failure(let error):
                     switch error {
                     case Network.NetworkError.noInternet:
@@ -26,7 +27,7 @@ class RanklistsViewModel: ObservableObject {
                     case Network.NetworkError.clientError:
                         print("Client error")
                     case Network.NetworkError.statusNotSuccess:
-                        print("Not success status code")
+                        print("Status error")
                     case Network.NetworkError.decodeError:
                         print("Decode error")
                     case Network.NetworkError.urlError:

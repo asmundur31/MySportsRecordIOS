@@ -14,6 +14,9 @@
 		2333E399294BA04300B75BA8 /* MySportsRecordIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333E398294BA04300B75BA8 /* MySportsRecordIOSTests.swift */; };
 		2333E3A3294BA04300B75BA8 /* MySportsRecordIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333E3A2294BA04300B75BA8 /* MySportsRecordIOSUITests.swift */; };
 		2333E3A5294BA04300B75BA8 /* MySportsRecordIOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2333E3A4294BA04300B75BA8 /* MySportsRecordIOSUITestsLaunchTests.swift */; };
+		238500432969749500AD3F8A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238500422969749500AD3F8A /* User.swift */; };
+		2385004529698AA500AD3F8A /* TokenDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2385004429698AA400AD3F8A /* TokenDTO.swift */; };
+		238500472969AB1400AD3F8A /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238500462969AB1300AD3F8A /* UserViewModel.swift */; };
 		23BE8E832950F3A50040CBD9 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE8E822950F3A50040CBD9 /* Network.swift */; };
 		23BE8E852950F47A0040CBD9 /* RanklistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE8E842950F47A0040CBD9 /* RanklistsViewModel.swift */; };
 		23BE8E872950F4A10040CBD9 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE8E862950F4A10040CBD9 /* Users.swift */; };
@@ -64,6 +67,9 @@
 		2333E39E294BA04300B75BA8 /* MySportsRecordIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySportsRecordIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2333E3A2294BA04300B75BA8 /* MySportsRecordIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySportsRecordIOSUITests.swift; sourceTree = "<group>"; };
 		2333E3A4294BA04300B75BA8 /* MySportsRecordIOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySportsRecordIOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		238500422969749500AD3F8A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2385004429698AA400AD3F8A /* TokenDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDTO.swift; sourceTree = "<group>"; };
+		238500462969AB1300AD3F8A /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		23BE8E822950F3A50040CBD9 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		23BE8E842950F47A0040CBD9 /* RanklistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RanklistsViewModel.swift; sourceTree = "<group>"; };
 		23BE8E862950F4A10040CBD9 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -196,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				23BE8E862950F4A10040CBD9 /* Users.swift */,
+				238500422969749500AD3F8A /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,6 +215,7 @@
 				23BE8E842950F47A0040CBD9 /* RanklistsViewModel.swift */,
 				23BE8E882950F6670040CBD9 /* Parser.swift */,
 				23F9E98F2966F515005DB3BE /* AuthenticationViewModel.swift */,
+				238500462969AB1300AD3F8A /* UserViewModel.swift */,
 			);
 			path = ModelViews;
 			sourceTree = "<group>";
@@ -217,6 +225,7 @@
 			children = (
 				23F9E99229675E0B005DB3BE /* SignUpDTO.swift */,
 				23F9E99429675E3F005DB3BE /* RanklistDTO.swift */,
+				2385004429698AA400AD3F8A /* TokenDTO.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -366,6 +375,7 @@
 				23D7E5AB2950A213005B84AF /* UserView.swift in Sources */,
 				23BE8E852950F47A0040CBD9 /* RanklistsViewModel.swift in Sources */,
 				23D7E5B92950AD11005B84AF /* SidebarButtonView.swift in Sources */,
+				2385004529698AA500AD3F8A /* TokenDTO.swift in Sources */,
 				2333E388294BA03A00B75BA8 /* MySportsRecordIOSApp.swift in Sources */,
 				23BE8E892950F6670040CBD9 /* Parser.swift in Sources */,
 				23F9E9902966F515005DB3BE /* AuthenticationViewModel.swift in Sources */,
@@ -373,6 +383,8 @@
 				23F9E99329675E0B005DB3BE /* SignUpDTO.swift in Sources */,
 				23D7E5BB2950B8BC005B84AF /* LoginView.swift in Sources */,
 				23D7E5AF2950A234005B84AF /* NewsfeedView.swift in Sources */,
+				238500472969AB1400AD3F8A /* UserViewModel.swift in Sources */,
+				238500432969749500AD3F8A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

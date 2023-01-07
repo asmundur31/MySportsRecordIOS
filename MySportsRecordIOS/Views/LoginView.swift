@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var username: String = ""
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+
+    @State var email: String = ""
     @State var password: String = ""
     var body: some View {
         VStack {
@@ -17,15 +19,11 @@ struct LoginView: View {
             Spacer()
             Form {
                 Section("Input") {
-                    TextField(text: $username, prompt: Text("Username")) {
-                        Text("Required")
-                    }
-                    SecureField(text: $password, prompt: Text("Password")) {
-                        Text("Required")
-                    }
+                    TextField("Email", text: $email)
+                    SecureField("Password", text: $password)
                 }
                 Button("Login") {
-                    print("Logic that performs the login")
+                    authenticationViewModel.login(email: email, password: password)
                 }
             }
             Spacer()

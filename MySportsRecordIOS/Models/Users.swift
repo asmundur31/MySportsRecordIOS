@@ -14,13 +14,3 @@ struct Users: Hashable, Codable {
         self.users = users
     }
 }
-
-struct User: Hashable, Codable {
-    var username: String
-    var email: String
-    var birthday: String
-    var gender: String
-    var nationality: String?
-    var club: String?
-    var score: Double
-}
