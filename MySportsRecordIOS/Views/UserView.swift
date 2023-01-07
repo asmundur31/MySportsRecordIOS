@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct UserView: View {
+    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+    
     var body: some View {
-        HStack {
-            Text("Here is going to be users info page")
+        VStack {
+            if userViewModel.user != nil && authenticationViewModel.loggedIn {
+                Text("Username: \(userViewModel.user!.username)")
+                Text("Gender: \(userViewModel.user!.gender)")
+                Text("Birthday: \(userViewModel.user!.birthday)")
+                Text("Nationality: \(userViewModel.user!.nationality ?? "")")
+                Text("Club: \(userViewModel.user!.club ?? "")")
+                Text("Score: \(userViewModel.user!.score)")
+            } else {
+                Text("No one is logged in")
+            }
+        }
+        .onAppear {
+            userViewModel.getUser()
         }
     }
 }
@@ -18,5 +33,7 @@ struct UserView: View {
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
         UserView()
+            .environmentObject(UserViewModel())
+            .environmentObject(AuthenticationViewModel())
     }
 }

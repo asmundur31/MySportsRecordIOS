@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SidebarView: View {
     @ObservedObject var navigationManager : SidebarNavigationManager
+    @EnvironmentObject var authenticationViewModel : AuthenticationViewModel
 
     var body: some View {
         VStack {
@@ -20,11 +21,20 @@ struct SidebarView: View {
                 Label("Home", systemImage: "figure.gymnastics")
             }
             .padding(.top)
-            Button {
-                navigationManager.viewType = .login
-            } label: {
-                Label("Login", systemImage: "lock.open")
+            if !authenticationViewModel.loggedIn {
+                Button {
+                    navigationManager.viewType = .login
+                } label: {
+                    Label("Login", systemImage: "lock.open")
+                }
+            } else {
+                Button {
+                    authenticationViewModel.logout()
+                } label: {
+                    Label("Logout", systemImage: "lock")
+                }
             }
+            
             Button {
                 navigationManager.viewType = .signup
             } label: {

@@ -17,7 +17,7 @@ class Network {
     private init() {}
 
     // Function that gets weather forcast based on location
-    func request<T: Codable>(method: String, url: String, body: [String: Any], type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+    func request<T: Codable>(method: String, url: String, body: [String: Any]?, token: String?, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         // Check the internet connection
         let monitor = NWPathMonitor()
         monitor.pathUpdateHandler = { path in
@@ -38,13 +38,15 @@ class Network {
         // Create the request
         var request = URLRequest(url: url)
         request.httpMethod = method
-        if method == "POST" {
-            let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        if body != nil {
+            let jsonBody = try? JSONSerialization.data(withJSONObject: body!, options: .prettyPrinted)
             request.httpBody = jsonBody
         }
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-
+        if token != nil {
+            request.setValue( "Bearer \(token!)", forHTTPHeaderField: "Authorization")
+        }
         // Create the task
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -58,18 +60,15 @@ class Network {
                 return
             }
             if let mimeType = httpResponse.mimeType, mimeType == "application/json", let data = data {
-                if method == "GET" {
-                    if let result = try? JSONDecoder().decode(T.self, from: data) {
-                        completion(.success(result))
-                    } else {
-                        completion(.failure(NetworkError.decodeError))
-                    }
+                if let result = try? JSONDecoder().decode(T.self, from: data) {
+                    completion(.success(result))
+                } else {
+                    completion(.failure(NetworkError.decodeError))
                 }
+                return
             }
-            // If post method it was successful
-            if method == "POST" {
-                completion(.success("Successful" as! T))
-            }
+            // Success with no response body
+            completion(.success("Successful" as! T))
         }
         // Start the task
         task.resume()
