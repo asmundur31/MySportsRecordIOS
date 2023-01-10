@@ -43,6 +43,8 @@ struct SignUpView: View {
                             .foregroundColor(.red)
                     }
                     TextField("Email (Required)", text: $email)
+                        .textContentType(.emailAddress)
+                        .keyboardType(.emailAddress)
                         .onChange(of: email) { value in
                             emailError = (value == "") ? true : false
                         }

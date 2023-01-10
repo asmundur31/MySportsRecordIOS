@@ -14,6 +14,8 @@ struct MainView: View {
 
     var body: some View {
         ZStack {
+            Color(red: 141/255, green: 223/255, blue: 144/255).ignoresSafeArea()
+            
             SideBarStack(sidebarWidth: CGFloat(sidebarWidth), showSidebar: $showSidebar) {
                 SidebarView(navigationManager: navigationManager)
             } content: {
@@ -27,9 +29,6 @@ struct MainView: View {
                 case .signup:
                     SignUpView()
                         .padding()
-                case .settings:
-                    SettingsView()
-                        .padding()
                 }
             }
         }
@@ -41,8 +40,9 @@ struct MainView: View {
             } label: {
                 Label("", systemImage: "line.3.horizontal")
                     .font(.system(size: 36))
+                    .foregroundColor(Color.black)
             }
-            .position(x: showSidebar ? CGFloat(sidebarWidth+40) : 40, y: 10)
+            .position(x: showSidebar ? CGFloat(sidebarWidth+50) : 50, y:40)
         }
     }
 }
@@ -52,5 +52,6 @@ struct MainView_Previews: PreviewProvider {
         MainView()
             .environmentObject(RanklistsViewModel())
             .environmentObject(AuthenticationViewModel())
+            .environmentObject(UserViewModel())
     }
 }

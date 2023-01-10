@@ -1,5 +1,5 @@
 //
-//  NewsfeedView.swift
+//  UserView.swift
 //  MySportsRecordIOS
 //
 //  Created by Ásmundur Óskar Ásmundsson on 19.12.2022.
@@ -7,36 +7,34 @@
 
 import SwiftUI
 
-struct NewsfeedView: View {
+struct UserProfileView: View {
     @EnvironmentObject var userViewModel: UserViewModel
-
+    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+    
     var body: some View {
         ScrollView {
             LazyVStack {
-                Text("Most recent uploads")
+                Text("User profile")
                     .font(.title)
-                if userViewModel.recentSkills != [] {
-                    ForEach(userViewModel.recentSkills, id: \.self) { skill in
-                        SkillItemView(skill: skill)
-                            .padding(.vertical)
-                    }
+                if userViewModel.user != nil && authenticationViewModel.loggedIn {
+                    UserView(user: userViewModel.user!)
                 } else {
                     Text("")
                         .frame(height: 200)
-                    Text("No posts yet")
+                    Text("No one is logged in")
                 }
-                
             }
         }
         .onAppear {
-            userViewModel.getRecentSkills()
+            userViewModel.getUser()
         }
     }
 }
 
-struct NewsfeedView_Previews: PreviewProvider {
+struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        NewsfeedView()
+        UserProfileView()
             .environmentObject(UserViewModel())
+            .environmentObject(AuthenticationViewModel())
     }
 }

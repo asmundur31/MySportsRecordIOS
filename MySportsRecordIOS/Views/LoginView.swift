@@ -25,6 +25,9 @@ struct LoginView: View {
                 Button("Login") {
                     authenticationViewModel.login(email: email, password: password)
                 }
+                if authenticationViewModel.loggedIn {
+                    Text("Successful login")
+                }
             }
             Spacer()
         }

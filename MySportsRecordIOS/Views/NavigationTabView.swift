@@ -20,12 +20,13 @@ struct NavigationTabView: View {
                     Image(systemName: "house")
                     Text("Newsfeed")
                 }
-            UserView()
+            UserProfileView()
                 .tabItem() {
                     Image(systemName: "person")
                     Text("User info")
                 }
         }
+        .background(Color(.lightGray).cornerRadius(8))
     }
 }
 

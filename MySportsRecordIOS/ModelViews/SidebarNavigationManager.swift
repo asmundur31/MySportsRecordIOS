@@ -17,5 +17,4 @@ enum ViewTypes {
     case main
     case login
     case signup
-    case settings
 }
