@@ -20,6 +20,62 @@ class Parser {
         return Users(users: newUsers)
     }
     
+    func parseTrampetSkills(trampetSkills: [TrampetSkillDTO]) -> [TrampetSkill] {
+        var newSkills: [TrampetSkill] = []
+        for trampetS in trampetSkills {
+            let skillData = Data(trampetS.skill.utf8)
+            let decoder = JSONDecoder()
+            do {
+                let skill = try decoder.decode(Skill.self, from: skillData)
+                var entryE = TrampetSkill.EntryElement.no
+                switch skill.table {
+                case "H":
+                    entryE = TrampetSkill.EntryElement.h
+                case "R":
+                    entryE = TrampetSkill.EntryElement.h90
+                case "1H":
+                    entryE = TrampetSkill.EntryElement.h180
+                case "KAS":
+                    entryE = TrampetSkill.EntryElement.kas
+                case "TSU":
+                    entryE = TrampetSkill.EntryElement.tsu
+                default:
+                    break
+                }
+                var salt = TrampetSkill.Salto.zero
+                switch skill.saltos {
+                case 1:
+                    salt = TrampetSkill.Salto.one
+                case 2:
+                    salt = TrampetSkill.Salto.two
+                case 3:
+                    salt = TrampetSkill.Salto.three
+                default:
+                    break
+                }
+                var posi = [TrampetSkill.Position]()
+                for p in skill.positions {
+                    switch p {
+                    case "tucked":
+                        posi.append(TrampetSkill.Position.tucked)
+                    case "piked":
+                        posi.append(TrampetSkill.Position.piked)
+                    case "straight":
+                        posi.append(TrampetSkill.Position.straight)
+                    default:
+                        break
+                    }
+                }
+                
+                newSkills.append(TrampetSkill(entryElement: entryE, saltos: salt, twists: skill.twists, positions: posi, videoUrl: trampetS.video_url, value: trampetS.value))
+
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        return newSkills
+    }
     // Function to prettify the date
     func prettyDate(_ dateString: String) -> String {
         let dateFormatter = DateFormatter()
@@ -28,5 +84,12 @@ class Parser {
         let prettyDateFormatter = DateFormatter()
         prettyDateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         return prettyDateFormatter.string(from: date)
+    }
+    
+    struct Skill: Codable {
+        var table: String
+        var saltos: Int
+        var twists: [Double]
+        var positions: [String]
     }
 }

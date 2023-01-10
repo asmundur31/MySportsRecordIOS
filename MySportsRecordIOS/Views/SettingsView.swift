@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     var body: some View {
         VStack {
-            Text("Settings view all the way to the edges so I can see if that is the problem")
+            Text("Settings view where user can set ")
         }
     }
 }

@@ -1,39 +1,61 @@
 //
-//  UserView.swift
+//  UserProfileView.swift
 //  MySportsRecordIOS
 //
-//  Created by Ásmundur Óskar Ásmundsson on 19.12.2022.
+//  Created by Ásmundur Óskar Ásmundsson on 9.1.2023.
 //
 
 import SwiftUI
 
 struct UserView: View {
-    @EnvironmentObject var userViewModel: UserViewModel
-    @EnvironmentObject var authenticationViewModel: AuthenticationViewModel
+    var user: User
     
     var body: some View {
         VStack {
-            if userViewModel.user != nil && authenticationViewModel.loggedIn {
-                Text("Username: \(userViewModel.user!.username)")
-                Text("Gender: \(userViewModel.user!.gender)")
-                Text("Birthday: \(userViewModel.user!.birthday)")
-                Text("Nationality: \(userViewModel.user!.nationality ?? "")")
-                Text("Club: \(userViewModel.user!.club ?? "")")
-                Text("Score: \(userViewModel.user!.score)")
-            } else {
-                Text("No one is logged in")
+            Text("\(user.username)")
+                .font(.title)
+            Text("\(user.email)")
+                .font(.subheadline)
+            VStack {
+                HStack {
+                    Text("\(user.gender)")
+                    Spacer()
+                    Text("\(user.nationality ?? "")")
+                }
+                HStack {
+                    Text("\(user.birthday)")
+                    Spacer()
+                    Text("\(user.club ?? "")")
+                }
             }
-        }
-        .onAppear {
-            userViewModel.getUser()
+            .padding()
+            Text(String(format: "Total score: %.2f", user.score))
+                .font(.title2)
+            Spacer()
+            NavigationView {
+                List {
+                    NavigationLink("Trampet") {
+                        UserTrampetView()
+                            .navigationTitle("Trampet")
+                    }
+                    /*NavigationLink("Tumbling") {
+                        UserTumblingView()
+                            .navigationTitle("Tumbling")
+                    }
+                    NavigationLink("Floor") {
+                        UserFloorView()
+                            .navigationTitle("Floor")
+                    }*/
+                }
+            }
+            .padding(.bottom)
         }
     }
 }
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView()
+        UserView(user: User(username: "Ásmundur", email: "asmundur31@gmail.com", birthday: "1998-10-31", gender: "Male", score: 0.0))
             .environmentObject(UserViewModel())
-            .environmentObject(AuthenticationViewModel())
     }
 }
